@@ -25,6 +25,7 @@ app.get('/aiman.js',(req,res)=>{
     
 
 })
+app.post()
 
 
 
