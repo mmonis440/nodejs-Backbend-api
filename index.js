@@ -14,7 +14,9 @@ app.get('/' , (req , res)=>{
 })
 
 app.get('/anas.js',(req,res)=>{
-    res.send("shahnaz")
+    res.send(`<p>you are on the first page of website and this is under maintaince for 30 minutes</p>
+     ${Date()}
+    <p>also confuse little bit on devops to choose or go for the development side of the software</p> `)
     console.log("you are viewing shahnaz page")
 })
 app.get('/aiman.js',(req,res)=>{
@@ -25,7 +27,6 @@ app.get('/aiman.js',(req,res)=>{
     
 
 })
-app.post()
 
 
 
