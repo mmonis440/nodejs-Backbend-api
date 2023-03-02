@@ -1,11 +1,11 @@
-var http = require('http');
-var url = require('url');
-var port = 9000;
-
-http.createServer(function (req,res) { 
-    res.writeHead(200,{'content-type':'plain/html'});
-    var q = url.parse(req.url,true).query;
-    var txt = q.year + " " + q.month  + " " + q.date ;
-    res.end(txt);
-    console.log(`connect to the port ${port} `)
- }).listen(9000);
+const options ={
+     methods :'GET',
+	 headers :{
+		'X-RapidAPI-Key': '0c8bc1da8emsh019e1b29b9f7960p139134jsnbf6c06f39760',
+		'X-RapidAPI-Host': 'dark-sky.p.rapidapi.com'
+	 }
+};
+fetch('https://dark-sky.p.rapidapi.com/12,17?units=auto&lang=en',options)
+	.then(response => response.json())
+	.then(response => console.log(response))
+	.catch(err => console.error(err));

@@ -1,4 +1,5 @@
- const express = require('express')
+ const { response } = require('express')
+const express = require('express')
 const app = express()
 require('dotenv').config()
 const port = process.env.PORT || 5000
@@ -7,11 +8,7 @@ const port = process.env.PORT || 5000
 // you need to install the following libraries |express|[dotenv > if required]
 // or run this command >> npm i express dotenv 
 
-app.get('/' , (req , res)=>{
 
-   res.send('hello from simple server :)')
-
-})
 
 app.get('/anas.js',(req,res)=>{
     res.send(`<p>you are on the first page of website and this is under maintaince for 30 minutes</p>
@@ -28,6 +25,10 @@ app.get('/aiman.js',(req,res)=>{
 
 })
 
-
-
+app.get('/answer',(req,res,next)=>{ 
+    res.send('hello world');
+    fetch('https://api.stackexchange.com/2.3/answers?order=desc&sort=activity&site=stackoverflow')
+    .then((response)=>response.json())
+    .then((data)=>res.send(data));
+ });
 app.listen(port , ()=> console.log('> Server is up and running on port : ' + port))
